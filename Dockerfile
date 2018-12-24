@@ -1,6 +1,6 @@
-FROM alpine:3.5
+FROM alpine:3.7
 
-ENV NGINX_VERSION=1.13.5
+ENV NGINX_VERSION=1.15.0
 
 RUN set -x \
  && mkdir -p \
@@ -106,7 +106,7 @@ RUN set -x \
 COPY --from=library/nginx:alpine /etc/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY --from=library/nginx:alpine /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 80
+EXPOSE 80 443
 
 STOPSIGNAL SIGTERM
 
